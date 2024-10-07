@@ -158,15 +158,61 @@ print(agg_categoria)
 
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
+while True:
+    entrada = input("Digite uma entrada (sair, para sair): ")
+    if entrada == 'sair':
+        break
+    print(entrada)
 
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
+lista = [8,9,10,11,12,13,19]
+entrada = None
+while entrada not in lista:
+    try:
+        entrada = int(input("Digite um numero da lista: "))
+        if entrada not in lista:
+            print(f"{entrada} nao esta na lista")
+    except:
+        print("Digite somente numeros")    
+print(f'{entrada} esta na lista')
 
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
+from time import sleep
+pagina_atual = 1
+pagina_max = 5
+while pagina_atual <= pagina_max:
+    print(f'Leitura da pagina: {pagina_atual}')
+    pagina_atual += 1
+    sleep(0.5)
+print('Fim da leitura')
+
 
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
+from time import sleep
+tentativas = 0
+print("Conexão perdida")
+while tentativas < 5:
+    tentativas += 1
+    print(f"Tentativa {tentativas} de 5")
+    sleep(0.5)
+print("Maximo de tentativas atingido, encerrando o programa")
+
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
+
+from time import sleep
+lista = [8,9,10,11,12,13,19,15,30,45]
+buscando = 19
+num = 0
+
+while num < len(lista):
+    if lista[num] == buscando:
+        print(f'{buscando} encontrado na posicao {num}')
+        break
+    print(f'processando numero {lista[num]}, posicao {num}')
+    sleep(0.5)
+    num += 1
